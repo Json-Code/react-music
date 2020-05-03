@@ -7,6 +7,8 @@ import RecommendList from '../../components/list'
 import { Content } from './style'
 import { forceCheck } from 'react-lazyload'
 import Loading from '../../baseUI/loading'
+import { renderRoutes } from 'react-router-config';
+
 
 function Recommend (props) {
   const { bannerList, recommendList, enterLoading } = props;
@@ -36,6 +38,8 @@ function Recommend (props) {
         </div>
       </Scroll>
       { enterLoading ? <Loading></Loading> : null }
+      // 将目前所在路由的下一层子路由加以渲染
+      { renderRoutes (props.route.routes) }
     </Content>
   )
 }
